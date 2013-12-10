@@ -163,7 +163,7 @@
 
 	<target name="exportdb">
         <exec command="php ${repo.dir}/redtemplates-installation/exportdb.php" escape="false" />
-            <echo message="Database dumped" />
+        <echo message="Database dumped" />
     </target>
 
 	<!-- ============================================  -->
