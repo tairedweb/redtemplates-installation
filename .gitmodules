@@ -1,0 +1,3 @@
+[submodule "redSHOP"]
+	path = redSHOP
+	url = git@github.com:redCOMPONENT-COM/redSHOP.git
