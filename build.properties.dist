@@ -1,6 +1,7 @@
 tpl.name=redTEMPLATES
 tpl.version=0.1
 joomla.version=2.5
+redshop.version=0.1
 www.dir=/var/www/redTEMPLATES-test
 repo.dir=/var/www/redTEMPLATES
-package.dir=/home/git/build/redTEMPLATES
+package.dir=/home/luredweb/git/build/redTEMPLATES
