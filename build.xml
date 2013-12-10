@@ -43,6 +43,7 @@
 				<!-- eclipse -->
 				<exclude name=".settings/**"/>
 				<exclude name="configuration.php"/>
+				<exclude name="redshop_install.php"/>
 			</fileset>
 		</copy>
 
@@ -74,6 +75,7 @@
 				<!-- eclipse -->
 				<exclude name=".settings/**"/>
 				<exclude name="configuration.php"/>
+				<exclude name="redshop_install.php"/>
 			</fileset>
 		</copy>
 
@@ -157,7 +159,7 @@
         </copy>
 
         <!-- Install file -->
-		<copy file="${repo.dir}/redtemplates-installation/redshop_install.php" tofile="${package.dir}/redSHOP/install.php" overwrite="true" />
+		<copy file="${repo.dir}/redshop_install.php" tofile="${package.dir}/redSHOP/install.php" overwrite="true" />
 
 	</target>
 
@@ -177,10 +179,9 @@
 				<delete file="${package.dir}/../${tpl.name}_quickstart_v${tpl.version}_rs${redshop.version}_${joomla.version}j.zip" />
 			</then>
 		</if>
-
 		<echo msg="Creating Quickstart archive..."/>
 		<zip destfile="${package.dir}/../${tpl.name}_quickstart_v${tpl.version}_rs${redshop.version}_${joomla.version}j.zip">
-			<fileset dir="${package.dir}" />
+			<fileset dir="${package.dir}/source" />
 		</zip>
 
 		<!-- Template  -->
@@ -190,7 +191,6 @@
 				<delete file="${package.dir}/../${tpl.name}_template_v${tpl.version}.zip" />
 			</then>
 		</if>
-
 		<echo msg="Creating Templates archive..."/>
 		<zip destfile="${package.dir}/../${tpl.name}_template_v${tpl.version}.zip">
 			<fileset dir="${package.dir}/source/templates/${namelwwords}" />
@@ -203,7 +203,6 @@
 				<delete file="${package.dir}/../${tpl.name}_template_v${tpl.version}_rs${redshop.version}_${joomla.version}j.zip" />
 			</then>
 		</if>
-
 		<echo msg="Creating Templates with redSHOP archive..."/>
 		<zip destfile="${package.dir}/../${tpl.name}_template_v${tpl.version}_rs${redshop.version}_${joomla.version}j.zip">
 			<fileset dir="${package.dir}/redSHOP" />
