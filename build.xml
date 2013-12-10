@@ -67,7 +67,7 @@
 	<!-- Create package    -->
 	<target name="release" depends="prepare, exportdb">
 		<echo msg="Copying SOURCE files to RELEASE directory..."/>
-		<copy todir="${package.dir}">
+		<copy todir="${package.dir}/source">
 			<fileset dir="${repo.dir}/">
 				<exclude name=".*"/>
 				<exclude name="redtemplates-installation/**"/>
@@ -78,7 +78,7 @@
 		</copy>
 
 		<echo msg="Copying INSTALLATION files to release directory..."/>
-		<copy todir="${package.dir}/installation">
+		<copy todir="${package.dir}/source/installation">
 			<filterchain refid="file" />
 			<fileset dir="${repo.dir}/redtemplates-installation/installation">
 				<exclude name=".*"/>
@@ -86,10 +86,79 @@
 		</copy>
 	
 		<!-- htaccess -->
-		<copy file="${repo.dir}/.htaccess" tofile="${package.dir}/.htaccess" overwrite="true" />
+		<copy file="${repo.dir}/.htaccess" tofile="${package.dir}/source/.htaccess" overwrite="true" />
 		
 		<copy file="${repo.dir}/templates/${namelwwords}/template_thumbnail.png" 
-			tofile="${package.dir}/installation/template/images/template.png" overwrite="true" />
+			tofile="${package.dir}/source/installation/template/images/template.png" overwrite="true" />
+
+		<!-- redSHOP -->
+		<echo msg="Copying REDSHOP files to build directory..." />
+        <copy todir="${package.dir}/redSHOP">
+            <fileset dir="${repo.dir}/redtemplates-installation/redSHOP">
+                <include name="LICENSE.txt" />
+                <include name="redshop.xml" />
+            </fileset>
+        </copy>
+
+        <echo msg="Copying COMPONENT folder to build directory..." />
+        <copy todir="${package.dir}/redSHOP/component">
+            <fileset dir="${repo.dir}/redtemplates-installation/redSHOP/component">
+                <include name="**" />
+                <exclude name=".*" />
+            </fileset>
+        </copy>
+
+        <echo msg="Copying MEDIA folder to build directory..." />
+        <copy todir="${package.dir}/redSHOP/media">
+            <fileset dir="${repo.dir}/redtemplates-installation/redSHOP/media">
+                <include name="**" />
+                <exclude name=".*" />
+            </fileset>
+        </copy>
+
+        <echo msg="Copying main MODULES folder to build directory..." />
+        <echo msg="Copying redSHOP Cart module" />
+        <copy todir="${package.dir}/redSHOP/modules/site/mod_redshop_cart">
+            <fileset dir="${repo.dir}/redtemplates-installation/redSHOP/modules/site/mod_redshop_cart">
+                <include name="**" />
+                <exclude name=".*" />
+            </fileset>
+        </copy>
+
+        <echo msg="Copying main PLUGINS folder to build directory..." />
+        <echo msg="Copying rs_payment_banktransfer plugin" />
+        <copy todir="${package.dir}/redSHOP/plugins/redshop_payment/rs_payment_banktransfer">
+            <fileset dir="${repo.dir}/redtemplates-installation/redSHOP/plugins/redshop_payment/rs_payment_banktransfer">
+                <include name="**" />
+                <exclude name=".*" />
+            </fileset>
+        </copy>
+        <echo msg="Copying rs_payment_paypal plugin" />
+        <copy todir="${package.dir}/redSHOP/plugins/redshop_payment/rs_payment_paypal">
+            <fileset dir="${repo.dir}/redtemplates-installation/redSHOP/plugins/redshop_payment/rs_payment_paypal">
+                <include name="**" />
+                <exclude name=".*" />
+            </fileset>
+        </copy>
+        <echo msg="Copying default_shipping plugin" />
+        <copy todir="${package.dir}/redSHOP/plugins/redshop_shipping/default_shipping">
+            <fileset dir="${repo.dir}/redtemplates-installation/redSHOP/plugins/redshop_shipping/default_shipping">
+                <include name="**" />
+                <exclude name=".*" />
+            </fileset>
+        </copy>
+
+        <echo msg="Copying TEMPLATE folder to build directory..." />
+        <copy todir="${package.dir}/redSHOP/template">
+            <fileset dir="${repo.dir}/templates/${namelwwords}">
+                <include name="**" />
+                <exclude name=".*" />
+            </fileset>
+        </copy>
+
+        <!-- Install file -->
+		<copy file="${repo.dir}/redtemplates-installation/redshop_install.php" tofile="${package.dir}/redSHOP/install.php" overwrite="true" />
+
 	</target>
 
 	<target name="exportdb">
@@ -114,7 +183,20 @@
 			<fileset dir="${package.dir}" />
 		</zip>
 
-		<!-- Template -->
+		<!-- Template  -->
+		<if>
+			<available file="${package.dir}/../${tpl.name}_template_v${tpl.version}.zip" />
+			<then>
+				<delete file="${package.dir}/../${tpl.name}_template_v${tpl.version}.zip" />
+			</then>
+		</if>
+
+		<echo msg="Creating Templates archive..."/>
+		<zip destfile="${package.dir}/../${tpl.name}_template_v${tpl.version}.zip">
+			<fileset dir="${package.dir}/source/templates/${namelwwords}" />
+		</zip>
+
+		<!-- Template with redSHOP -->
 		<if>
 			<available file="${package.dir}/../${tpl.name}_template_v${tpl.version}_rs${redshop.version}_${joomla.version}j.zip" />
 			<then>
@@ -122,9 +204,9 @@
 			</then>
 		</if>
 
-		<echo msg="Creating Templates archive..."/>
+		<echo msg="Creating Templates with redSHOP archive..."/>
 		<zip destfile="${package.dir}/../${tpl.name}_template_v${tpl.version}_rs${redshop.version}_${joomla.version}j.zip">
-			<fileset dir="${package.dir}/templates/${namelwwords}" />
+			<fileset dir="${package.dir}/redSHOP" />
 		</zip>
 
 	</target>
