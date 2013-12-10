@@ -1,6 +1,6 @@
-comp.name=
-www.dir=
-comp.version=
-joomla.version=
-repo.dir=
-package.dir=
+tpl.name=redTEMPLATES
+tpl.version=0.1
+joomla.version=2.5
+www.dir=/var/www/redTEMPLATES-test
+repo.dir=/var/www/redTEMPLATES
+package.dir=/home/git/build/redTEMPLATES
