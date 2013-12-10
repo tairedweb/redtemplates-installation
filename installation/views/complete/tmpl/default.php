@@ -1,7 +1,7 @@
 <?php
 /**
  * @package		Joomla.Installation
- * @copyright	Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
+ * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -32,17 +32,36 @@ defined('_JEXEC') or die;
 			<div class="install-body">
 				<div class="m">
 					<fieldset>
+						<h2 class="rstitle"><?php echo JText::_('COM_REDSHOP_CONFIGURATIONS_TITLE'); ?></h2>
 						<table class="final-table">
 							<tr>
-								<td class="error">
-									<?php echo JText::_('INSTL_COMPLETE_REMOVE_INSTALLATION'); ?>
+								<td class="rsmsg" colspan="3">
+									<?php echo JText::_('COM_REDSHOP_CONFIGURATIONS_MSG'); ?>
+								</td>
+							</tr>
+							
+							<tr>
+								<td align="right" width="47%">
+									<div class="redshop_img"></div>
+								</td>
+								<td width="6%" class="rsinfo"><strong>+</strong></td>
+								<td align="left" width="47%">
+									<div class="template_img"></div>
+								</td>
+								
+							</tr>
+							
+						
+							<tr>
+								<td class="rsmsg error " colspan="3">
+									<?php echo JText::_('COM_REDSHOP_REMOVE'); ?>
 								</td>
 							</tr>
 							<tr>
-								<td><input class="button" type="button" name="instDefault" value="<?php echo JText::_('INSTL_COMPLETE_REMOVE_FOLDER'); ?>" onclick="Install.removeFolder(this);"/></td>
+								<td colspan="3"><input class="button" type="button" name="instDefault" value="<?php echo JText::_('INSTL_COMPLETE_REMOVE_FOLDER'); ?>" onclick="Install.removeFolder(this);"/></td>
 							</tr>
 							<tr class="message inlineError" id="theDefaultError" style="display: none">
-								<td>
+								<td colspan="3">
 									<dl>
 										<dt class="error"><?php echo JText::_('JERROR'); ?></dt>
 										<dd id="theDefaultErrorMessage"></dd>
@@ -50,48 +69,40 @@ defined('_JEXEC') or die;
 								</td>
 							<tr>
 							<tr>
-								<td>
-									<h3>
+								<td align="left" class="rsinfo" colspan="3">
 									<?php echo JText::_('INSTL_COMPLETE_ADMINISTRATION_LOGIN_DETAILS'); ?>
-									</h3>
 								</td>
 							</tr>
 							<tr>
-								<td class="notice">
+								<td align="left" class="rsinfo" colspan="3">
 									<?php echo JText::_('JUSERNAME'); ?> : <strong><?php echo $this->options['admin_user']; ?></strong>
 								</td>
 							</tr>
 							<tr>
-								<td>&#160;</td>
-							</tr>
-							<tr>
-								<td class="notice">
-									<div id="cpanel">
-										<div>
-											<div class="icon">
-												<p>
-													<a href="http://community.joomla.org/translations/joomla-16-translations.html" target="_blank">
-													<b><?php echo JText::_('INSTL_COMPLETE_LANGUAGE_1'); ?></b>
-													<br />
-													<?php echo JText::_('INSTL_COMPLETE_LANGUAGE_2'); ?>
-													</a>
-												</p>
-											</div>
-										</div>
+								<td colspan="3">
+									<div class="rssupport">
+										<span class="sfirst">
+											<?php echo JText::_('COM_REDSHOP_SUPPORT'); ?>
+										</span>
+										<span class="slast">
+											<a target="_blank" href="http://redcomponent.com/department/redcomponent-support"></a>
+										</span>
+										
 									</div>
 								</td>
 							</tr>
+							
 							<tr>
 								<td>&#160;</td>
 							</tr>
 							<?php if ($this->config) : ?>
 							<tr>
-								<td class="small">
+								<td class="small" colspan="3">
 									<?php echo JText::_('INSTL_CONFPROBLEM'); ?>
 								</td>
 							</tr>
 							<tr>
-								<td>
+								<td colspan="3">
 									<textarea rows="5" cols="49" name="configcode" onclick="this.form.configcode.focus();this.form.configcode.select();" ><?php echo $this->config; ?></textarea>
 								</td>
 							</tr>

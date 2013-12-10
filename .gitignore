@@ -30,3 +30,5 @@ build.properties
 !.gitignore
 
 installation/sql/mysql/joomla.sql
+installation/template/images/template.png
+redshop_install.php

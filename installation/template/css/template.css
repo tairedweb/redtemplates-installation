@@ -574,3 +574,75 @@ div.inlineError {
 		margin-left: 0;
 	}
 }
+
+.rstitle
+{
+	font-size: 20px;
+	line-height: 30px;
+	color: #025A8D;
+	font-weight: bold;
+	padding-left: 6px;
+	margin: 0;
+	text-align: center;
+}
+
+.rsmsg
+{
+	font-size: 14px;
+	padding-bottom: 20px;
+}
+
+.rsmsg.error
+{
+	padding-top: 20px;
+}
+
+.rsinfo
+{
+	font-size: 14px;
+}
+
+.redshop_img
+{
+	background: url("../images/redSHOP.png") no-repeat scroll center center transparent;
+    height: 39px;
+	width: 154px;
+	display: block;
+}
+
+.template_img
+{
+	background: url("../images/template.png") no-repeat scroll center center transparent;
+    height: 169px;
+	width: 312px;
+	display: block;
+}
+
+.rssupport
+{
+	background: url("../images/support.png") repeat-y scroll center center transparent;
+    padding: 40px 160px 40px 5px;
+}
+
+.rssupport span, .rssupport span a
+{
+	font-size: 20px !important;
+	color: #fff;
+}
+
+.rssupport span a
+{
+	text-decoration: underline;
+}
+
+.rssupport .slast a
+{
+	background: url("../images/support2.png") no-repeat scroll center center transparent;
+    display: block;
+    float: right;
+    height: 129px;
+    margin-right: -165px;
+    margin-top: -60px;
+    position: relative;
+    width: 183px;
+}

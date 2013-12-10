@@ -49,7 +49,7 @@ JText::script('INSTL_FTP_SETTINGS_CORRECT');
 	<body>
 		<div id="header">
 			<span class="logo"><a href="http://www.joomla.org" target="_blank"><img src="template/images/logo.png" alt="Joomla!" /></a></span>
-			<h1>Joomla! <?php echo JVERSION; ?> <?php echo JText::_('INSTL_INSTALLATION') ?></h1>
+			<h1>Joomla! <?php echo JVERSION; ?> <?php echo JText::_('INSTL_INSTALLATION') ?> - redSHOP %%redshop.version%% + %%tpl.name%% Template %%tpl.version%%</h1>
 		</div>
 		<jdoc:include type="message" />
 		<div id="content-box">
