@@ -63,6 +63,7 @@ class Exportdb extends JApplicationCli
 	{
 		$db = JFactory::getDBO();
 		$prefix = $db->getPrefix();
+		jimport('joomla.filesystem.file');
 
 		// Table Array is not dumped
 		$exceptTables = array(
@@ -140,8 +141,60 @@ class Exportdb extends JApplicationCli
 
 		$return = str_replace("CREATE TABLE `" . $prefix, "CREATE TABLE `#__", $return);
 
-		$handle = dirname(dirname(__FILE__)) . '/redtemplates-installation/installation/sql/mysql/joomla.sql';
-		file_put_contents($handle, $return);
+		JFile::write(dirname(__FILE__) . '/installation/sql/mysql/joomla.sql', $return);
+
+		// Rows of redSHOP template
+		$db->setQuery("SELECT * FROM #__redshop_template WHERE template_name LIKE 'fs_%'");
+		$rows = $db->loadRowList();
+
+		if (count($rows) > 0)
+		{
+			foreach ($rows as $key => &$row)
+			{
+				foreach ($row as $i => &$value)
+				{
+					if ($i == 0)
+					{
+						unset($row[$i]);
+					}
+
+					$value = addslashes($value);
+					$value = preg_replace("/\n/", "\\n", $value);
+					$value = "'" . $value . "'";
+				}
+
+				$row = "(" . implode(",", $row) . ")";
+			}
+
+			if (count($rows) > 0)
+			{
+				$db->setQuery("SHOW COLUMNS FROM #__redshop_template");
+				$columns = $db->loadRowList();
+
+				$return = "INSERT INTO #__redshop_template (";
+
+				foreach ($columns as $i => $column)
+				{
+					if ($i > 0)
+					{
+						$return .= "`" . $column[0] . "`";
+
+						if ($i < count($columns) - 1)
+						{
+							$return .= ",";
+						}
+					}
+				}
+
+				$return .= ") VALUES\n";
+				$return .= implode(",\n", $rows) . ";";
+
+				$data = JFile::read(dirname(__FILE__) . '/redshop_install.php');
+				$data = str_replace("%%tpl.database%%", $return, $data);
+
+				JFile::write(dirname(__FILE__) . '/install.php', $data);
+			}
+		}
 	}
 }
 

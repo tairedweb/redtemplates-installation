@@ -130,7 +130,7 @@ defined('_JEXEC') or die;
 				</div>
 			</form>
 
-			<div class="clr"></div>
+			<!--<div class="clr"></div>
 
 			<form enctype="multipart/form-data" action="index.php" method="post" id="filename">
 				<h3><?php echo JText::_('INSTL_SITE_LOAD_SAMPLE_TITLE'); ?></h3>
@@ -172,7 +172,7 @@ defined('_JEXEC') or die;
 					<?php echo $this->form->getInput('type'); ?>
 					<?php echo JHtml::_('form.token'); ?>
 				</div>
-			</form>
+			</form>-->
 
 		<div class="clr"></div>
 	</div>

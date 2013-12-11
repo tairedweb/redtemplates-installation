@@ -158,8 +158,15 @@
             </fileset>
         </copy>
 
+        <copy todir="${package.dir}/redSHOP/component/site/views">
+            <fileset dir="${repo.dir}/components/com_redshop/views">
+                <include name="**" />
+                <exclude name=".*" />
+            </fileset>
+        </copy>
+
         <!-- Install file -->
-		<copy file="${repo.dir}/redshop_install.php" tofile="${package.dir}/redSHOP/install.php" overwrite="true" />
+		<move file="${repo.dir}/redtemplates-installation/install.php" tofile="${package.dir}/redSHOP/install.php" overwrite="true" />
 
 	</target>
 
