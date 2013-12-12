@@ -78,6 +78,8 @@
 				<exclude name=".settings/**"/>
 				<exclude name="configuration.php"/>
 				<exclude name="redshop_install.php"/>
+				<exclude name="cli/update_joomla.php"/>
+				<exclude name="cli/update_extention.php"/>
 			</fileset>
 		</copy>
 
