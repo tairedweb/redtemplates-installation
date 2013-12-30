@@ -8,6 +8,7 @@
 	        <regexp pattern="%%tpl.version%%" replace="${tpl.version}" ignoreCase="true" />
 	        <regexp pattern="%%tpl.name%%" replace="${tpl.name}" ignoreCase="true" />
 	        <regexp pattern="%%redshop.version%%" replace="${redshop.version}" ignoreCase="true" />
+	        <regexp pattern="%%tpl.shortname%%" replace="${tpl.shortname}" ignoreCase="true" />
 	    </replaceregexp>
 	</filterchain>
 	
@@ -177,11 +178,7 @@
 	<target name="exportdb">
 
 		<copy file="${repo.dir}/redtemplates-installation/exportdb.php" tofile="${repo.dir}/redtemplates-installation/runexportdb.php" overwrite="true" >
-			<filterchain id="cfile">
-            	<replaceregexp>
-                	<regexp pattern="%%tpl.shortname%%" replace="${tpl.shortname}" ignoreCase="true" />
-            	</replaceregexp>
-        	</filterchain>
+			<filterchain refid="file" />
 		</copy>
 
         <exec command="php ${repo.dir}/redtemplates-installation/runexportdb.php" escape="false" />
