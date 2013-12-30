@@ -163,6 +163,10 @@
             </fileset>
         </copy>
 
+        <echo msg="Copying LANGUAGE TEMPLATE folder to build directory..." />
+        <copy file="${repo.dir}/language/en-GB/en-GB.tpl_${namelwwords}.ini" tofile="${package.dir}/redSHOP/template/language/en-GB/en-GB.tpl_${nameLcwords}.ini" overwrite="true" />
+        <copy file="${repo.dir}/language/en-GB/en-GB.tpl_${namelwwords}.sys.ini" tofile="${package.dir}/redSHOP/template/language/en-GB/en-GB.tpl_${nameLcwords}.sys.ini" overwrite="true" />
+
         <copy todir="${package.dir}/redSHOP/component/site/views">
             <fileset dir="${repo.dir}/components/com_redshop/views">
                 <include name="**" />
