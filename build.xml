@@ -176,7 +176,9 @@
         </copy>
 
         <!-- Install file -->
-		<move file="${repo.dir}/redtemplates-installation/install.php" tofile="${package.dir}/redSHOP/install.php" overwrite="true" />
+		<move file="${repo.dir}/redtemplates-installation/install.php" tofile="${package.dir}/redSHOP/install.php" overwrite="true" >
+			<filterchain refid="file" />
+		</move>
 
 	</target>
 
