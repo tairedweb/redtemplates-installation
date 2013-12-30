@@ -193,7 +193,7 @@ class Exportdb extends JApplicationCli
 				$return .= ") VALUES\n";
 				$return .= implode(",\n", $rows) . ";";
 
-				$return = '");';
+				$return .= '");';
 			}
 		}
 
