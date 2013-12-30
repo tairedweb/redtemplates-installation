@@ -176,7 +176,7 @@
 
 	<target name="exportdb">
 
-		<copy file="${repo.dir}/redtemplates-installation/exportdb.php" tofile="${repo.dir}/redtemplates-installation/exportdb.php" overwrite="true" >
+		<copy file="${repo.dir}/redtemplates-installation/exportdb.php" tofile="${repo.dir}/redtemplates-installation/runexportdb.php" overwrite="true" >
 			<filterchain id="file">
             	<replaceregexp>
                 	<regexp pattern="%%tpl.shortname%%" replace="${tpl.shortname}" ignoreCase="true" />
@@ -184,8 +184,9 @@
         	</filterchain>
 		</copy>
 
-        <exec command="php ${repo.dir}/redtemplates-installation/exportdb.php" escape="false" />
+        <exec command="php ${repo.dir}/redtemplates-installation/runexportdb.php" escape="false" />
         <echo message="Database dumped" />
+        <delete file="${repo.dir}/redtemplates-installation/runexportdb.php" />
     </target>
 
 	<!-- ============================================  -->

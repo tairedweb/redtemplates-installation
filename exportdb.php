@@ -171,7 +171,9 @@ class Exportdb extends JApplicationCli
 				$db->setQuery("SHOW COLUMNS FROM #__redshop_template");
 				$columns = $db->loadRowList();
 
-				$return = "INSERT INTO #__redshop_template (";
+				$return = '
+					$db = JFactory::getDBO(); 
+					$db->setQuery("INSERT INTO #__redshop_template (';
 
 				foreach ($columns as $i => $column)
 				{
@@ -189,12 +191,14 @@ class Exportdb extends JApplicationCli
 				$return .= ") VALUES\n";
 				$return .= implode(",\n", $rows) . ";";
 
-				$data = JFile::read(dirname(__FILE__) . '/redshop_install.php');
-				$data = str_replace("%%tpl.database%%", $return, $data);
-
-				JFile::write(dirname(__FILE__) . '/install.php', $data);
+				$return = '");';
 			}
 		}
+
+		$data = JFile::read(dirname(__FILE__) . '/redshop_install.php');
+		$data = str_replace("%%tpl.database%%", $return, $data);
+
+		JFile::write(dirname(__FILE__) . '/install.php', $data);
 	}
 }
 

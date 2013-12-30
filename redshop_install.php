@@ -4783,9 +4783,7 @@ class Com_RedshopInstallerScript
 
 		if ($status)
 		{
-			$db = JFactory::getDBO();
-			$db->setQuery("%%tpl.database%%");
-			$db->query();
+			%%tpl.database%%
 		}
 	}
 }
