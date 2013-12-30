@@ -144,7 +144,7 @@ class Exportdb extends JApplicationCli
 		JFile::write(dirname(__FILE__) . '/installation/sql/mysql/joomla.sql', $return);
 
 		// Rows of redSHOP template
-		$db->setQuery("SELECT * FROM #__redshop_template WHERE template_name LIKE 'fs_%'");
+		$db->setQuery("SELECT * FROM #__redshop_template WHERE template_name LIKE '%%tpl.shortname%%_%'");
 		$rows = $db->loadRowList();
 
 		if (count($rows) > 0)
