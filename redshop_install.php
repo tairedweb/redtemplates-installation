@@ -4768,7 +4768,6 @@ class Com_RedshopInstallerScript
 	 * Create template for redFASHION
 	 *
 	 * @param   object  $parent  class calling this method
-	 * @param   string  $prefix  Prefix template
 	 *
 	 * @return void
 	 */

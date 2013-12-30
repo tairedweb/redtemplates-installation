@@ -218,7 +218,7 @@
 		</if>
 		<echo msg="Creating Templates archive..."/>
 		<zip destfile="${package.dir}/../${tpl.name}_template_v${tpl.version}.zip">
-			<fileset dir="${package.dir}/source/templates/${namelwwords}" />
+			<fileset dir="${package.dir}/redSHOP/templates" />
 		</zip>
 
 		<!-- Template with redSHOP -->
