@@ -147,6 +147,8 @@ class Exportdb extends JApplicationCli
 		$db->setQuery("SELECT * FROM #__redshop_template WHERE template_name LIKE '%%tpl.shortname%%_%'");
 		$rows = $db->loadRowList();
 
+		$return = "";
+
 		if (count($rows) > 0)
 		{
 			foreach ($rows as $key => &$row)
