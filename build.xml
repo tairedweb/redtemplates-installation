@@ -177,7 +177,7 @@
 	<target name="exportdb">
 
 		<copy file="${repo.dir}/redtemplates-installation/exportdb.php" tofile="${repo.dir}/redtemplates-installation/runexportdb.php" overwrite="true" >
-			<filterchain id="file">
+			<filterchain id="cfile">
             	<replaceregexp>
                 	<regexp pattern="%%tpl.shortname%%" replace="${tpl.shortname}" ignoreCase="true" />
             	</replaceregexp>
