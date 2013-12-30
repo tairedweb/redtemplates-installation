@@ -9,6 +9,7 @@
 	        <regexp pattern="%%tpl.name%%" replace="${tpl.name}" ignoreCase="true" />
 	        <regexp pattern="%%redshop.version%%" replace="${redshop.version}" ignoreCase="true" />
 	        <regexp pattern="%%tpl.shortname%%" replace="${tpl.shortname}" ignoreCase="true" />
+	        <regexp pattern="%%tpl.logo%%" replace="${tpl.logo}" ignoreCase="true" />
 	    </replaceregexp>
 	</filterchain>
 	

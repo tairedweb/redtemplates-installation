@@ -1,6 +1,7 @@
 tpl.name=redTEMPLATES
 tpl.shortname=rt
 tpl.version=0.1
+tpl.logo=http://images.redcomponent.com/fsh20qi.png
 joomla.version=2.5
 redshop.version=0.1
 www.dir=/var/www/redTEMPLATES-test

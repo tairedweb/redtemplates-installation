@@ -3929,7 +3929,7 @@ class Com_RedshopInstallerScript
 						<img src="<?php echo 'components/com_redshop/assets/images/261-x-88.png'; ?>" alt="redSHOP Logo"
 						     align="left">
 						<br>
-						<img src="http://images.redcomponent.com/fsh20qi.png" alt="redFASHION"
+						<img src="%%tpl.logo%%" alt="%%tpl.name%%"
 						     align="left">
 					</td>
 					<td valign="top" width="100%">
