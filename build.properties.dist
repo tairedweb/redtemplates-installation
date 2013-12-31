@@ -5,6 +5,7 @@ tpl.logo=http://images.redcomponent.com/fsh20qi.png
 joomla.version=2.5
 redshop.version=0.1
 extentions=com_redshop,com_redform,com_redslider
+extention.dir=/var/www/extentions
 www.dir=/var/www/redTEMPLATES-test
 repo.dir=/var/www/redTEMPLATES
 package.dir=/home/luredweb/git/build/redTEMPLATES

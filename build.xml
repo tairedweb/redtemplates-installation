@@ -182,7 +182,7 @@
 
 		<!-- Extensions -->
 		<foreach param="filename" absparam="absname" target="buildextensions">
-			<fileset dir="/var/www/Templates/Extensions" >
+			<fileset dir="${extention.dir}" >
 				<include name="*.zip" />
 				<include name="*.tar.gz" />
 			</fileset>
@@ -249,7 +249,7 @@
 		</if>
 		<echo msg="Creating Extensions archive..."/>
 		<zip destfile="${package.dir}/../${tpl.name}_extensions_v${tpl.version}_UNZIPFIRST.zip">
-			<fileset dir="${package.dir}/Extensions" />
+			<fileset dir="${package.dir}/extensions" />
 		</zip>
 
 	</target>
@@ -264,7 +264,7 @@
 		<if>
 	        <equals arg1="${hasex}" arg2="0" />
 	        <then>
-	            <copy file="/var/www/Templates/Extensions/${filename}" tofile="${package.dir}/Extensions/${filename}" overwrite="true" />
+	            <copy file="${extention.dir}/${filename}" tofile="${package.dir}/extensions/${filename}" overwrite="true" />
 	        </then>
     	</if>
 	</target>
