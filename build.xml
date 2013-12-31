@@ -180,6 +180,13 @@
 			<filterchain refid="file" />
 		</move>
 
+		<!-- Extensions -->
+		<foreach param="filename" absparam="absname" target="buildextensions">
+			<fileset dir="/var/www/Templates/Extensions" >
+				<include name="*.zip" />
+				<include name="*.tar.gz" />
+			</fileset>
+		</foreach>
 	</target>
 
 	<target name="exportdb">
@@ -233,5 +240,33 @@
 			<fileset dir="${package.dir}/redSHOP" />
 		</zip>
 
+		<!-- Extensions -->
+		<if>
+			<available file="${package.dir}/../${tpl.name}_extensions_v${tpl.version}_UNZIPFIRST.zip" />
+			<then>
+				<delete file="${package.dir}/../${tpl.name}_extensions_v${tpl.version}_UNZIPFIRST.zip" />
+			</then>
+		</if>
+		<echo msg="Creating Extensions archive..."/>
+		<zip destfile="${package.dir}/../${tpl.name}_extensions_v${tpl.version}_UNZIPFIRST.zip">
+			<fileset dir="${package.dir}/Extensions" />
+		</zip>
+
 	</target>
+
+	<target name="buildextensions">
+		<property name="filename" value="${filename}" />
+		<foreach list="${extentions}" param="extention" target="copyextensions" />
+	</target>
+
+	<target name="copyextensions">
+		<php expression="strpos('${filename}', '${extention}')" returnProperty="hasex"/>
+		<if>
+	        <equals arg1="${hasex}" arg2="0" />
+	        <then>
+	            <copy file="/var/www/Templates/Extensions/${filename}" tofile="${package.dir}/Extensions/${filename}" overwrite="true" />
+	        </then>
+    	</if>
+	</target>
+
 </project>
