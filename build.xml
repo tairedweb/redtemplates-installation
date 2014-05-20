@@ -12,9 +12,9 @@
 	        <regexp pattern="%%tpl.logo%%" replace="${tpl.logo}" ignoreCase="true" />
 	    </replaceregexp>
 	</filterchain>
-	
+
 	<php expression="strtolower(${tpl.name})" returnProperty="namelwwords"/>
-	
+
 	<!-- ============================================  -->
 	<!-- Create packages folder                        -->
 	<!-- ============================================  -->
@@ -61,12 +61,12 @@
 		<!-- htaccess -->
 		<copy file="${repo.dir}/.htaccess" tofile="${www.dir}/.htaccess" overwrite="true" />
 
-		<copy file="${repo.dir}/templates/${namelwwords}/template_thumbnail.png" 
+		<copy file="${repo.dir}/templates/${namelwwords}/template_thumbnail.png"
 			tofile="${www.dir}/installation/template/images/template.png" overwrite="true" />
 
 		<delete file="${repo.dir}/redtemplates-installation/install.php" />
 	</target>
-	
+
 	<!-- ============================================  -->
 	<!-- Target: release                               -->
 	<!-- ============================================  -->
@@ -94,11 +94,11 @@
 				<exclude name=".*"/>
 			</fileset>
 		</copy>
-	
+
 		<!-- htaccess -->
 		<copy file="${repo.dir}/.htaccess" tofile="${package.dir}/source/.htaccess" overwrite="true" />
-		
-		<copy file="${repo.dir}/templates/${namelwwords}/template_thumbnail.png" 
+
+		<copy file="${repo.dir}/templates/${namelwwords}/template_thumbnail.png"
 			tofile="${package.dir}/source/installation/template/images/template.png" overwrite="true" />
 
 		<!-- redSHOP -->
