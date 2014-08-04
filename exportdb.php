@@ -139,7 +139,7 @@ class Exportdb extends JApplicationCli
 			}
 		}
 
-		$return = str_replace("CREATE TABLE `" . $prefix, "CREATE TABLE `#__", $return);
+		$return = str_replace($prefix, "#__", $return);
 
 		JFile::write(dirname(__FILE__) . '/installation/sql/mysql/joomla.sql', $return);
 
@@ -174,7 +174,7 @@ class Exportdb extends JApplicationCli
 				$columns = $db->loadRowList();
 
 				$return = '
-					$db = JFactory::getDBO(); 
+					$db = JFactory::getDBO();
 					$db->setQuery("INSERT INTO #__redshop_template (';
 
 				foreach ($columns as $i => $column)
