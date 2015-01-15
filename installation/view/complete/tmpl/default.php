@@ -19,6 +19,16 @@ defined('_JEXEC') or die;
 	<div class="alert alert-success">
 		<h3><?php echo JText::_('INSTL_COMPLETE_TITLE'); ?></h3>
 	</div>
+
+	<div class="rssupport">
+		<span class="sfirst">
+			<?php echo JText::_('COM_REDSHOP_SUPPORT'); ?>
+		</span>
+		<span class="slast">
+			<a target="_blank" href="http://redcomponent.com/department/redcomponent-support"></a>
+		</span>
+	</div>
+
 	<div class="alert">
 		<p><?php echo JText::_('INSTL_COMPLETE_REMOVE_INSTALLATION'); ?></p>
 		<input type="button" class="btn btn-warning" name="instDefault" onclick="Install.removeFolder(this);" value="<?php echo JText::_('INSTL_COMPLETE_REMOVE_FOLDER'); ?>" />

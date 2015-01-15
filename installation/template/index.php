@@ -49,7 +49,7 @@ JText::script('INSTL_FTP_SETTINGS_CORRECT');
 			<img src="<?php echo $this->baseurl ?>/template/images/joomla.png" alt="Joomla" />
 			<hr />
 			<h1>
-				%%tpl.name%% Template %%tpl.version%%
+				redPHOTOGRAPHER Template 0.1
 			</h1>
 		</div>
 		<!-- Container -->
