@@ -83,7 +83,7 @@ class Exportdb extends JApplicationCli
 		$db->setQuery("SHOW TABLES LIKE '" . $prefix . "%'");
 		$tables = $db->loadRowList();
 
-		$return = "";
+		$return = "SET FOREIGN_KEY_CHECKS=0;" . "\n" . "SET SQL_MODE=\"NO_AUTO_VALUE_ON_ZERO\";" . "\n" . "SET time_zone=\"+00:00\";" . "\n\n";
 
 		foreach ($tables as $table)
 		{
