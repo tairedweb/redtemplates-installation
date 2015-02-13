@@ -404,7 +404,7 @@ class InstallationModelDatabase extends JModelBase
 		}
 
 		// Attempt to update the table #__schema.
-		$pathPart = JPATH_ADMINISTRATOR . '/components/com_admin/sql/updates/';
+		/*$pathPart = JPATH_ADMINISTRATOR . '/components/com_admin/sql/updates/';
 
 		if ($type == 'mysqli' || $type == 'mysql')
 		{
@@ -453,10 +453,10 @@ class InstallationModelDatabase extends JModelBase
 		{
 			$app->enqueueMessage($e->getMessage(), 'notice');
 			return false;
-		}
+		}*/
 
 		// Attempt to refresh manifest caches
-		$query->clear()
+		/*$query->clear()
 			->select('*')
 			->from('#__extensions');
 		$db->setQuery($query);
@@ -483,10 +483,10 @@ class InstallationModelDatabase extends JModelBase
 				$app->enqueueMessage(JText::sprintf('INSTL_DATABASE_COULD_NOT_REFRESH_MANIFEST_CACHE', $extension->name), 'notice');
 				return false;
 			}
-		}
+		}*/
 
 		// Load the localise.sql for translating the data in joomla.sql
-		if ($type == 'mysqli' || $type == 'mysql')
+		/*if ($type == 'mysqli' || $type == 'mysql')
 		{
 			$dblocalise = 'sql/mysql/localise.sql';
 		}
@@ -547,9 +547,9 @@ class InstallationModelDatabase extends JModelBase
 				$app->enqueueMessage($e->getMessage(), 'notice');
 				$return = false;
 			}
-		}
+		}*/
 
-		return $return;
+		return true;
 	}
 
 	/**
