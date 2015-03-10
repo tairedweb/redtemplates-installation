@@ -104,10 +104,10 @@ class Exportdb extends JApplicationCli
 				{
 					foreach ($rows as $key => &$row)
 					{
-						if ($tableName == '#__schemas' && $row[0] == 700)
+						/*if ($tableName == '#__schemas' && $row[0] == 700)
 						{
 							unset($rows[$key]);
-						}
+						}*/
 
 						foreach ($row as &$value)
 						{
