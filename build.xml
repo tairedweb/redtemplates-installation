@@ -58,9 +58,6 @@
 			</fileset>
 		</copy>
 
-		<!-- htaccess -->
-		<copy file="${repo.dir}/.htaccess" tofile="${www.dir}/.htaccess" overwrite="true" />
-
 		<copy file="${repo.dir}/templates/${namelwwords}/template_thumbnail.png"
 			tofile="${www.dir}/installation/template/images/template.png" overwrite="true" />
 
@@ -95,8 +92,6 @@
 			</fileset>
 		</copy>
 
-		<!-- htaccess -->
-		<copy file="${repo.dir}/.htaccess" tofile="${package.dir}/source/.htaccess" overwrite="true" />
 
 		<copy file="${repo.dir}/templates/${namelwwords}/template_thumbnail.png"
 			tofile="${package.dir}/source/installation/template/images/template.png" overwrite="true" />
