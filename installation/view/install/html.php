@@ -3,7 +3,7 @@
  * @package     Joomla.Installation
  * @subpackage  View
  *
- * @copyright   Copyright (C) 2005 - 2014 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2016 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -12,9 +12,7 @@ defined('_JEXEC') or die;
 /**
  * The Installation Install View
  *
- * @package     Joomla.Installation
- * @subpackage  View
- * @since       3.1
+ * @since  3.1
  */
 class InstallationViewInstallHtml extends JViewHtml
 {
@@ -60,14 +58,14 @@ class InstallationViewInstallHtml extends JViewHtml
 		$this->tasks[] = ($this->options['db_old'] == 'remove') ? 'Database_remove' : 'Database_backup';
 		$this->tasks[] = 'Database';
 
-		if (isset($this->options['sample_file']))
+		if ($this->options['sample_file'])
 		{
 			$this->tasks[] = 'Sample';
 		}
 
 		$this->tasks[] = 'Config';
 
-		if (isset($this->options['summary_email']))
+		if ($this->options['summary_email'])
 		{
 			$this->tasks[] = 'Email';
 		}
