@@ -100,7 +100,7 @@
 			tofile="${package.dir}/source/installation/template/images/template.png" overwrite="true" />
 
 		<!-- redSHOP -->
-		<!--<echo msg="Copying REDSHOP files to build directory..." />
+		<echo msg="Copying REDSHOP files to build directory..." />
         <copy todir="${package.dir}/redSHOP">
             <fileset dir="${repo.dir}/redtemplates-installation/redSHOP">
                 <include name="LICENSE.txt" />
@@ -173,20 +173,20 @@
                 <include name="**" />
                 <exclude name=".*" />
             </fileset>
-        </copy>-->
+        </copy>
 
         <!-- Install file -->
-		<!--<move file="${repo.dir}/redtemplates-installation/install.php" tofile="${package.dir}/redSHOP/install.php" overwrite="true" >
+		<move file="${repo.dir}/redtemplates-installation/install.php" tofile="${package.dir}/redSHOP/install.php" overwrite="true" >
 			<filterchain refid="file" />
-		</move>-->
+		</move>
 
 		<!-- Extensions -->
-		<!--<foreach param="filename" absparam="absname" target="buildextensions">
+		<foreach param="filename" absparam="absname" target="buildextensions">
 			<fileset dir="${extention.dir}" >
 				<include name="*.zip" />
 				<include name="*.tar.gz" />
 			</fileset>
-		</foreach>-->
+		</foreach>
 	</target>
 
 	<target name="exportdb">
@@ -229,7 +229,7 @@
 		</zip>
 
 		<!-- Template with redSHOP -->
-		<!--<if>
+		<if>
 			<available file="${package.dir}/../${tpl.name}_template_v${tpl.version}_rs${redshop.version}_${joomla.version}j.zip" />
 			<then>
 				<delete file="${package.dir}/../${tpl.name}_template_v${tpl.version}_rs${redshop.version}_${joomla.version}j.zip" />
@@ -238,10 +238,10 @@
 		<echo msg="Creating Templates with redSHOP archive..."/>
 		<zip destfile="${package.dir}/../${tpl.name}_template_v${tpl.version}_rs${redshop.version}_${joomla.version}j.zip">
 			<fileset dir="${package.dir}/redSHOP" />
-		</zip>-->
+		</zip>
 
 		<!-- Extensions -->
-		<!--<if>
+		<if>
 			<available file="${package.dir}/../${tpl.name}_extensions_v${tpl.version}_UNZIPFIRST.zip" />
 			<then>
 				<delete file="${package.dir}/../${tpl.name}_extensions_v${tpl.version}_UNZIPFIRST.zip" />
@@ -250,7 +250,7 @@
 		<echo msg="Creating Extensions archive..."/>
 		<zip destfile="${package.dir}/../${tpl.name}_extensions_v${tpl.version}_UNZIPFIRST.zip">
 			<fileset dir="${package.dir}/extensions" />
-		</zip>-->
+		</zip>
 
 	</target>
 
