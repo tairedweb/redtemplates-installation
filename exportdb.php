@@ -60,7 +60,7 @@ class Exportdb extends JApplicationCli
 
 		// Table Array is not dumped
 		$exceptTables = array(
-			'#__users', '#__user_usergroup_map',
+			//'#__users', '#__user_usergroup_map',
 			'#__session', '#__rwf_submitters',
 			'#__redshop_siteviewer', '#__redshop_pageviewer',
 			'#__redshop_quotation_item', '#__redshop_quotation_fields_data',
